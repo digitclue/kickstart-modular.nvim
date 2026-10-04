@@ -18,7 +18,6 @@ require('luasnip.loaders.from_vscode').lazy_load()
 vim.pack.add {
   { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' },
   gh 'folke/lazydev.nvim',
-  gh 'fang2hou/blink-copilot',
 }
 require('blink.cmp').setup {
   keymap = {
@@ -67,7 +66,6 @@ require('blink.cmp').setup {
       'path',
       'snippets',
       'buffer',
-      'copilot',
     },
     per_filetype = {
       lua = { inherit_defaults = true, 'lazydev' },
@@ -86,13 +84,6 @@ require('blink.cmp').setup {
           local filetype = vim.bo.filetype
           return vim.tbl_contains(enabled_filetypes, filetype)
         end,
-      },
-      copilot = {
-        name = 'copilot',
-        module = 'blink-copilot',
-        score_offset = 100,
-        async = true,
-        opts = { max_completions = 1 },
       },
     },
   },
